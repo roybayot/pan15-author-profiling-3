@@ -312,9 +312,9 @@ def classifyTestFiles(models, inputDir):
 				
 				if task == 'gender':
 					if pred_value == 0:
-						temp[task] = 'M'
+						temp[task] = 'male'
 					else:
-						temp[task] = 'F'
+						temp[task] = 'female'
 				elif task == 'age':
 					if pred_value == 0:
 						temp[task] = '18-24'
@@ -349,7 +349,7 @@ def writeOneResult(key, value, outputDir):
 	predictedConscientious 	= value['conscientious'][0]
 
 	
-	text_to_write = """<author id='%s'\n\ttype='%s'\n\tlang='%s'\n\tage_group='%s'\n\tgender='%s'\n\textroverted='%s'\n\tstable='%s'\n\tagreeable='%s'\n\tconscientious='%s'\n\topen='%s'\n/>"""% (thisId, thisType, thisLanguage, predictedAge, predictedGender, \
+	text_to_write = """<author id="{%s}"\n\ttype="%s"\n\tlang="%s"\n\tage_group="%s"\n\tgender="%s"\n\textroverted="%s"\n\tstable="%s"\n\tagreeable="%s"\n\tconscientious="%s"\n\topen="%s"\n/>"""% (thisId, thisType, thisLanguage, predictedAge, predictedGender, \
   		  predictedExtroverted, predictedStable, predictedAgreeable, \
   		  predictedConscientious, predictedOpen)
 	# Open a file
